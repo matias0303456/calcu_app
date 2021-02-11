@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+        crossorigin="anonymous">
+        <title>Calcu App - Lesdarus Web</title>
+    </head>
+
+    <body class="bg-dark text-light">
+
+        <main class="container-fluid d-grid gap-4">
+
+            <div class="row">
+                <div class="col-12 text-center mt-4">
+                    <h1>Calculadora de porcentajes</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>Ingrese la cantidad total, 
+                        el porcentaje a calcular (%) 
+                        y haga click en el botón "Calcular"</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 text-center mx-auto mb-3 border p-4 shadow">
+                    <form action="" method="post" class="d-grid gap-1">
+                        <label for="cantidad">Cantidad total</label>
+			            <input name="cantidad" id="cantidad" class="rounded" required><br/>
+			            <label for="cifra">Porcentaje a calcular (%)</label>
+			            <input name="cifra" id="cifra" class="mb-3 rounded" required><br/>
+                        <input type="submit" value="Calcular" class=" btn btn-danger shadow rounded">
+                    </form>
+
+                    {% block content %}
+                        {% if cantidad and cifra %}
+                            <p class="mt-4">Resultado</p>
+                            <p class="bg-light text-dark rounded">El {{ cifra }}% de {{ cantidad }} es {{ resultado }}</p>
+                        {% else %}
+                            <p class="mt-4 bg-light text-dark rounded">{{ error }}</p>
+                        {% endif %}
+                    {% endblock %}
+                </div>
+            </div>
+
+        </main>
+
+    </body>
+
+</html>
